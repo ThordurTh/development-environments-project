@@ -41,7 +41,7 @@ CMD ["npm", "start"]
 
 #### Backend Dockerfile
 
-```
+```dockerfile
 # Backend Dockerfile
 FROM node:latest
 
@@ -62,7 +62,7 @@ CMD ["npm", "start"]
 
 Utilize the docker-compose.yml file to orchestrate the services:
 
-```
+```yml
 version: '3'
 services:
   frontend:
@@ -96,7 +96,7 @@ volumes:
 
 Execute the following commands in the terminal:
 
-```
+```bash
 # Build and start the containers
 docker-compose up --build
 ```
