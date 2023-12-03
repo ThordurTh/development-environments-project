@@ -1,5 +1,6 @@
 version: '3'
 services:
+# Next.js application
   frontend:
     build: ./OLA-5-FrontEnd
     ports: 
@@ -8,7 +9,7 @@ services:
   backend:
     build: ./OLA-5-Server
     ports:
-      - "8080:8080" # Map the host port to the container port
+      - "8080:8080"
     depends_on:
       - mongo
 
@@ -16,12 +17,12 @@ services:
   mongo:
     image: mongo
     ports:
-      - "27017:27017" # Map the host port to the container port
+      - "27017:27017" 
     environment:
       MONGO_INITDB_ROOT_USERNAME: username
-      MONGO_INITDB_ROOT_PASSWORD: password # Set your desired password here
+      MONGO_INITDB_ROOT_PASSWORD: password 
     volumes:
-      - mongo-data:/data/hotels # Persist data by using volumes
+      - mongo-data:/data/hotels # Utilizes the defined volume 'mongo-data' to persist MongoDB data withing the container at the path '/data/hotels'
 
 volumes:
-  mongo-data:
+  mongo-data: # Creates a volume named 'mongo-data' that can be used by any service in the .yml file.
